@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.login-card {
+  height: 30em;
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 3em 0 3em;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  padding: 1em;
+}
+
+.card-content {
+  flex: auto;
+  padding-bottom: 3em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
