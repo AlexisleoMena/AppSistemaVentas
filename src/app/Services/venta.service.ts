@@ -29,7 +29,7 @@ export class VentaService {
       .set('fechaInicio', fechaInicio)
       .set('fechaFin', fechaFin);
 
-    return this.http.post<ResponseApi>(this.url + 'Historial', { params });
+    return this.http.get<ResponseApi>(this.url + 'Historial', { params });
   }
 
   resporte(fechaInicio: string, fechaFin: string): Observable<ResponseApi> {
@@ -37,6 +37,6 @@ export class VentaService {
       .set('fechaInicio', fechaInicio)
       .set('fechaFin', fechaFin);
 
-    return this.http.post<ResponseApi>(this.url + 'Reporte', { params });
+    return this.http.get<ResponseApi>(this.url + 'Reporte', { params });
   }
 }

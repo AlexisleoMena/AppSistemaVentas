@@ -1,0 +1,12 @@
+.table-container{
+  width: 100%;
+  height: 300px;
+}
+.container {
+  padding: 1em;
+}
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
