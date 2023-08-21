@@ -153,12 +153,12 @@ export class VentaComponent {
 
             Swal.fire({
               icon: 'success',
-              title: 'Venta registrada',
+              title: 'Venta registrada.',
               text: `Numero de venta: ${res.value.numeroDocumento}`,
             });
           } else {
             this._utilidadServicio.mostarAlerta(
-              'No se pudo registrar la venta',
+              'No se pudo registrar la venta.',
               'Oops!'
             );
           }

@@ -43,7 +43,7 @@ export class LoginComponent {
           this.router.navigateByUrl('/home');
         } else {
           this._utilidadServicio.mostarAlerta(
-            'No se encontraron coincidecias',
+            'No se encontraron coincidecias.',
             'Opps!'
           );
         }
@@ -52,7 +52,7 @@ export class LoginComponent {
         this.mostrarLoading = false;
       },
       error: () => {
-        this._utilidadServicio.mostarAlerta('Hubo un error', 'Opps!');
+        this._utilidadServicio.mostarAlerta('Ha ocurrido un error.', 'Opps!');
       },
     });
   }

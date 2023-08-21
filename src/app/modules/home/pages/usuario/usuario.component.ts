@@ -47,7 +47,7 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
           this.dataListaUsuarios.data = data.value;
         } else {
           this._utilidadService.mostarAlerta(
-            'No se encontraron datos',
+            'No se encontraron datos.',
             'Oops!'
           );
         }
@@ -100,13 +100,13 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
           next: (data) => {
             if (data.status) {
               this._utilidadService.mostarAlerta(
-                'El usuario fue eliminado',
+                'El usuario fue eliminado.',
                 'Listo!'
               );
               this.obtenerUsuarios();
             } else {
               this._utilidadService.mostarAlerta(
-                'No se pudo eliminar el usuario',
+                'No se pudo eliminar el usuario.',
                 'Error'
               );
             }

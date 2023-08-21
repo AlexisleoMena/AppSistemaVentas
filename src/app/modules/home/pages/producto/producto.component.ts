@@ -50,7 +50,7 @@ export class ProductoComponent implements OnInit, AfterViewInit {
           this.dataListaProductos.data = data.value;
         } else {
           this._utilidadService.mostarAlerta(
-            'No se encontraron datos',
+            'No se encontraron datos.',
             'Oops!'
           );
         }
@@ -103,13 +103,13 @@ export class ProductoComponent implements OnInit, AfterViewInit {
           next: (data) => {
             if (data.status) {
               this._utilidadService.mostarAlerta(
-                'El producto fue eliminado',
+                'El producto fue eliminado.',
                 'Listo!'
               );
               this.obtenerProductos();
             } else {
               this._utilidadService.mostarAlerta(
-                'No se pudo eliminar el producto',
+                'No se pudo eliminar el producto.',
                 'Error'
               );
             }

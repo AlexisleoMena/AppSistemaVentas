@@ -78,10 +78,10 @@ export class ModalProductoComponent implements OnInit {
       this._productoServicio.guardar(_producto).subscribe({
         next: (data) => {
           if(data.status) {
-            this._utilidadServicio.mostarAlerta("El producto fue registrado", "Exito");
+            this._utilidadServicio.mostarAlerta("El producto fue registrado correctamente.", "Exito");
             this.modalActual.close("true");
           } else {
-            this._utilidadServicio.mostarAlerta("No se pudo registrar el producto", "Error");
+            this._utilidadServicio.mostarAlerta("No se pudo registrar el producto.", "Error");
           }
         },
         error: (e) => {}
@@ -90,10 +90,10 @@ export class ModalProductoComponent implements OnInit {
       this._productoServicio.editar(_producto).subscribe({
         next: (data) => {
           if(data.status) {
-            this._utilidadServicio.mostarAlerta("El producto fue editado", "Exito");
+            this._utilidadServicio.mostarAlerta("El producto fue editado correctamente.", "Exito");
             this.modalActual.close("true");
           } else {
-            this._utilidadServicio.mostarAlerta("No se pudo editar el producto", "Error");
+            this._utilidadServicio.mostarAlerta("No se pudo editar el producto.", "Error");
           }
         },
         error: (e) => {}

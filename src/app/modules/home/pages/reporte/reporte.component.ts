@@ -80,7 +80,7 @@ export class ReporteComponent implements OnInit, AfterViewInit {
     const _fechaFin = moment(this.formularioFiltro.value.fechaFin).format('DD/MM/YYYY');
 
     if(_fechaInicio === "Invalid date" || _fechaFin === "Invalid date"){
-      this._utilidadServicio.mostarAlerta("Debe ingresar ambas fechas","Oops!")
+      this._utilidadServicio.mostarAlerta("Debe ingresar ambas fechas.","Oops!")
       return;
     }
 
@@ -96,7 +96,7 @@ export class ReporteComponent implements OnInit, AfterViewInit {
         }else{
           this.listaVentasReporte = [];
           this.dataVentaReporte.data = [];
-          this._utilidadServicio.mostarAlerta("No se encontraron datos","Oops!")
+          this._utilidadServicio.mostarAlerta("No se encontraron datos.","Oops!")
         }
       },
       error:(e) =>{}

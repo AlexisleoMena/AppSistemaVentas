@@ -113,7 +113,7 @@ export class HistorialVentaComponent implements OnInit, AfterViewInit {
 
       if (_fechaInicio === 'Invalid date' || _fechaFin === 'Invalid date') {
         this._utilidadServicio.mostarAlerta(
-          'Debe ingresar ambas fechas',
+          'Debe ingresar ambas fechas.',
           'Oops!'
         );
         return;
@@ -132,7 +132,7 @@ export class HistorialVentaComponent implements OnInit, AfterViewInit {
           if (data.status) this.datosListaVenta.data = data.value;
           else
             this._utilidadServicio.mostarAlerta(
-              'No se encontraron datos',
+              'No se encontraron datos.',
               'Oops!'
             );
         },

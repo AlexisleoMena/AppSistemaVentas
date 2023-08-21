@@ -30,28 +30,6 @@
       </mat-grid-tile>
 
       <mat-grid-tile>
-        <mat-form-field class="field-container" appearance="outline">
-          <mat-label>Contraseña</mat-label>
-          <input
-            [type]="ocultarPassword ? 'password' : 'text'"
-            formControlName="clave"
-            matInput
-            autocomplete="off"
-          />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="ocultarPassword = !ocultarPassword"
-            type="button"
-          >
-            <mat-icon matSuffix>
-              {{ ocultarPassword ? "visibility_off" : "visibility" }}
-            </mat-icon>
-          </button>
-        </mat-form-field>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Estado</mat-label>
           <mat-select formControlName="esActivo">

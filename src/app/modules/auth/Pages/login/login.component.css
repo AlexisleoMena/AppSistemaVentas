@@ -30,3 +30,8 @@
 .link-container {
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+  color: #3f51b5;
+}

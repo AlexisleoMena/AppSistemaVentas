@@ -33,7 +33,6 @@ export class ModalUsuarioComponent implements OnInit {
       nombreCompleto: ["", Validators.required],
       correo: ["", Validators.required],
       idRol: ["", Validators.required],
-      clave: ["", Validators.required],
       esActivo: ["1", Validators.required],
     })
 
@@ -56,7 +55,6 @@ export class ModalUsuarioComponent implements OnInit {
         nombreCompleto: this.datosUsuario.nombreCompleto,
         correo: this.datosUsuario.correo,
         idRol: this.datosUsuario.idRol,
-        clave: this.datosUsuario.clave,
         esActivo: this.datosUsuario.esActivo.toString(),
       });
 
@@ -70,17 +68,17 @@ export class ModalUsuarioComponent implements OnInit {
       correo: this.formularioUsuario.value.correo,
       idRol: this.formularioUsuario.value.idRol,
       rolDescripcion: "",
-      clave: this.formularioUsuario.value.clave,
+      clave: "",
       esActivo: parseInt(this.formularioUsuario.value.esActivo),
     }
     if(this.datosUsuario == null) {
       this._usuarioServicio.guardar(_usuario).subscribe({
         next: (data) => {
           if(data.status) {
-            this._utilidadServicio.mostarAlerta("El usuario fue registrado", "Exito");
+            this._utilidadServicio.mostarAlerta("El usuario fue registrado correctamente.", "Exito");
             this.modalActual.close("true");
           } else {
-            this._utilidadServicio.mostarAlerta("No se pudo registrar usuario", "Error");
+            this._utilidadServicio.mostarAlerta("El usuario no pudo ser registrado.", "Error");
           }
         },
         error: (e) => {}
@@ -89,10 +87,10 @@ export class ModalUsuarioComponent implements OnInit {
       this._usuarioServicio.editar(_usuario).subscribe({
         next: (data) => {
           if(data.status) {
-            this._utilidadServicio.mostarAlerta("El usuario fue edito", "Exito");
+            this._utilidadServicio.mostarAlerta("El usuario fue editado correctamente.", "Exito");
             this.modalActual.close("true");
           } else {
-            this._utilidadServicio.mostarAlerta("No se pudo editar el usuario", "Error");
+            this._utilidadServicio.mostarAlerta("No se pudo editar el usuario.", "Error");
           }
         },
         error: (e) => {}

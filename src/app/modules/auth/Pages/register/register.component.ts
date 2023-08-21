@@ -45,7 +45,7 @@ export class RegisterComponent {
           this.router.navigateByUrl('/authenticate/login');
         } else {
           this._utilidadServicio.mostarAlerta(
-            'No se pudo registrar',
+            'No se pudo registrar.',
             'Opps!'
           );
         }
@@ -54,7 +54,7 @@ export class RegisterComponent {
         this.mostrarLoading = false;
       },
       error: () => {
-        this._utilidadServicio.mostarAlerta('Hubo un error', 'Opps!');
+        this._utilidadServicio.mostarAlerta('Ha ocurrido un error.', 'Opps!');
       },
     });
   }

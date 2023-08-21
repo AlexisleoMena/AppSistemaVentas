@@ -8,7 +8,6 @@
         (ngSubmit)="agregarProductoParaVenta()"
       >
         <mat-grid-list cols="4" rowHeight="80px">
-          <mat-grid-tile></mat-grid-tile>
           <mat-grid-tile>
             <mat-form-field appearance="fill">
               <mat-label>Producto</mat-label>
@@ -51,6 +50,17 @@
           </mat-grid-tile>
 
           <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Tipo de pago</mat-label>
+              <mat-select [(value)]="tipoDePagoPorDefecto">
+                <mat-option value="Efectivo">Efectivo</mat-option>
+                <mat-option value="Tarjeta">Tarjeta</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile>
             <button
               mat-raised-button
               color="primary"
@@ -63,21 +73,6 @@
         </mat-grid-list>
       </form>
 
-      <mat-grid-list cols="4" rowHeight="80px">
-        <mat-grid-tile [colspan]="2"></mat-grid-tile>
-
-        <mat-grid-tile>
-          <mat-form-field appearance="fill">
-            <mat-label>Tipo de pago</mat-label>
-            <mat-select [(value)]="tipoDePagoPorDefecto">
-              <mat-option value="Efectivo">Efectivo</mat-option>
-              <mat-option value="Tarjeta">Tarjeta</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile>
-
-      
-      </mat-grid-list>
 
       <div class="table-container">
         <table mat-table [dataSource]="datosDetalleVenta">
