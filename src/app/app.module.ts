@@ -4,15 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './Components/login/login.component';
-import { LayoutComponent } from './Components/layout/layout.component';
-import { SharedModule } from './Reutilizable/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/Interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +18,11 @@ import { SharedModule } from './Reutilizable/shared/shared.module';
     BrowserAnimationsModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
