@@ -61,16 +61,16 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
     this.dataListaUsuarios.filter = filterValue.trim().toLocaleLowerCase();
   }
 
-  nuevoUsuario() {
-    this.dialog
-      .open(ModalUsuarioComponent, {
-        disableClose: true,
-      })
-      .afterClosed()
-      .subscribe((res) => {
-        if (res === 'true') this.obtenerUsuarios();
-      });
-  }
+  // nuevoUsuario() {
+  //   this.dialog
+  //     .open(ModalUsuarioComponent, {
+  //       disableClose: true,
+  //     })
+  //     .afterClosed()
+  //     .subscribe((res) => {
+  //       if (res === 'true') this.obtenerUsuarios();
+  //     });
+  // }
 
   editarUsuario(usuario: Usuario) {
     this.dialog
