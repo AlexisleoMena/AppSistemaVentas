@@ -24,8 +24,8 @@ export class LoginComponent {
     private _utilidadServicio: UtilidadService
   ) {
     this.formularioLogin = this.fb.group({
-      email: ['code@example.com', Validators.required],
-      password: ['123', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 

@@ -1,0 +1,32 @@
+
+.register-card {
+  height: 37em;
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 2em 0 2em;
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  padding: 1em;
+}
+
+.card-content {
+  flex: auto;
+  padding-bottom: 3em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.link-container {
+  text-align: center;
+}

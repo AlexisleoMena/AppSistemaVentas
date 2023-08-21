@@ -8,3 +8,9 @@
 mat-nav-list {
   margin-left: 10px;
 }
+.page-active {
+  background: #3f51b5 !important;
+}
+.page-active > *, .page-active .mat-mdc-list-item-title  {
+  color: white !important;
+}

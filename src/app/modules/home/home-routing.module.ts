@@ -14,6 +14,7 @@ const routes: Routes = [
     path: '',
     component: HomeLayoutComponent,
     children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashBoardComponent },
       { path: 'historial_venta', component: HistorialVentaComponent },
       { path: 'productos', component: ProductoComponent },

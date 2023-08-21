@@ -17,18 +17,18 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav opened="true" mode="side" style="width: 240px">
-    <mat-nav-list>
-      <mat-list-item *ngFor="let menu of listaMenus" [routerLink]="menu.url">
-        <mat-icon matListItemIcon>{{ menu.icono }}</mat-icon>
+<mat-sidenav-container >
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 240px; margin: 0;">
+    <mat-nav-list style="margin: 0; padding: 0;">
+      <mat-list-item *ngFor="let menu of listaMenus" [routerLink]="menu.url" routerLinkActive="page-active" >
+        <mat-icon style="margin-left: 26px;" matListItemIcon>{{ menu.icono }}</mat-icon>
         <div matListItemTitle>{{ menu.nombre }}</div>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <div style="min-height: 90vh">
+  <mat-sidenav-content >
+    <div style="min-height: 85vh">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

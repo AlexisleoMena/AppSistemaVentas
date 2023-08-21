@@ -1,7 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { Observable, catchError, map, of, throwError } from 'rxjs';
-import { Login, ResponseApi, Sesion, Usuario } from 'src/app/core/Interfaces';
+import {
+  Login,
+  Register,
+  ResponseApi,
+  Sesion,
+  Usuario,
+} from 'src/app/core/Interfaces';
 import { AuthStatus } from 'src/app/core/Interfaces/auth-status';
 import { environment } from 'src/environments/environment.development';
 
@@ -10,7 +16,6 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AuthService {
   private url: string = environment.endpoint + 'Usuario/';
-
   private http = inject(HttpClient);
 
   private _currentUser = signal<Sesion | null>(null);
@@ -23,29 +28,23 @@ export class AuthService {
     this.checkAuthStatus().subscribe();
   }
 
-  iniciarSesion(req: Login): Observable<boolean> {
-    return this.http.post<ResponseApi>(this.url + 'iniciarSesion', req).pipe(
-      map((res) => {
-        if(res.status) {
-          return this.setAuthentication(res.value)
-        }
-        return false;
-      }),
+  iniciarSesion(body: Login): Observable<boolean> {
+    const url = this.url + "iniciarSesion";
+
+    return this.http.post<ResponseApi>(url, body).pipe(
+      map((res) => res.status && this.setAuthentication(res.value)),
       catchError((err) => throwError(() => err.error.message))
     );
   }
 
-  // register(name: string, email: string, password: string): Observable<boolean> {
-  //   const url = `${this.url}/auth/register`;
-  //   const body = { email, password, name };
-
-  //   return this.http.post<Sesion>(url, body)
-  //     .pipe(
-  //       map((user) => this.setAuthentication(user)),
-  //       catchError((err) => throwError(() => err.error.message)
-  //     )
-  //   );
-  // }
+  Registrar(form: Register): Observable<boolean> {
+    const url = this.url + "Guardar";
+    const body = { ...form, idRol: 1 };
+    return this.http.post<ResponseApi>(url, body).pipe(
+      map((res) => res.status),
+      catchError((err) => throwError(() => err.error.message))
+    );
+  }
 
   private setAuthentication(user: Sesion): boolean {
     this._currentUser.set(user);
@@ -55,23 +54,17 @@ export class AuthService {
   }
 
   checkAuthStatus(): Observable<boolean> {
-    const url = `${this.url}VerificarToken`;
-    let userString = localStorage.getItem('usuario');
-    if (!userString) {
+    const url = this.url + "VerificarToken";
+
+    let user = localStorage.getItem('usuario');
+    if (!user) {
       this.cerrarSesion();
       return of(false);
     }
+    const body = JSON.parse(user);
 
-    let user = JSON.parse(userString);
-
-    console.log("userString", typeof userString, "user", user)
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${user.token}`
-    );
-
-    return this.http.get<boolean>(url, { headers }).pipe(
-      map(() => this.setAuthentication(user)),
+    return this.http.post<ResponseApi>(url, body).pipe(
+      map((res) => res.status && this.setAuthentication(res.value)),
       catchError(() => {
         this._authStatus.set(AuthStatus.notAuthenticated);
         return of(false);
@@ -86,7 +79,7 @@ export class AuthService {
   }
 
   obtenerSesionUsuario() {
-    const dataCadena = localStorage.getItem("usuario");
+    const dataCadena = localStorage.getItem('usuario');
     const usuario = JSON.parse(dataCadena!);
     return usuario;
   }

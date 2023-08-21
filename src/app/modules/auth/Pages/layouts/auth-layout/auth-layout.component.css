@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-image: url("../../../../../../assets/images/bg.jpg");
+  background-size: cover;
+}
